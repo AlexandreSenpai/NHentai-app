@@ -1,0 +1,34 @@
+{
+  "expo": {
+    "name": "NHentai",
+    "slug": "NHentai",
+    "privacy": "public",
+    "sdkVersion": "36.0.0",
+    "platforms": [
+      "android"
+    ],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#1D1D1D"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "android": {
+      "package": "com.Nhentai.Nhentai",
+      "versionCode": 1
+    },
+    "androidStatusBarColor": "#ed2553",
+    "androidStatusBar": {
+    "barStyle": "light-content",
+    "backgroundColor": "#ed2553"
+    }
+  }
+}
