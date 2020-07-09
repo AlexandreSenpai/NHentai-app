@@ -1,4 +1,4 @@
-runtime: nodejs10
+runtime: python37
 
 instance_class: B1
 

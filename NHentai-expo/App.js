@@ -6,13 +6,12 @@
  * @flow
  */
 
-import React, { Component } from 'react';
+import 'react-native-gesture-handler';
+import React from 'react';
 import Routes from './routes/routes'
 
-export default class App extends Component {
-  render(){
-    return( 
-      <Routes />
-    );
-  };
+export default function App(){
+  return( 
+    <Routes />
+  );
 }

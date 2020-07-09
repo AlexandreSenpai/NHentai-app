@@ -1,0 +1,3 @@
+NHentai-API
+flask
+flask-cors
