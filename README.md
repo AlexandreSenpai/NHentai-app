@@ -23,7 +23,9 @@ Antes de iniciar abra o cmd e digite ipconfig, obtenha o seu IPV4 e substitua no
 
 #### Screenshots
 
-<img src='https://i.imgur.com/dRYQ0Pi.jpg' />
-<img src='https://i.imgur.com/8iystHu.jpg' />
-<img src='https://i.imgur.com/y8DZ20T.jpg' />
-<img src='https://i.imgur.com/jZ953dj.jpg' />
+<div style="display: flex; justify-content: center;">
+    <img style="width: 50%; margin: 0 2px" src="https://i.imgur.com/dRYQ0Pi.jpg" />
+    <img style="width: 50%;" src="https://i.imgur.com/8iystHu.jpg" />
+    <img style="width: 50%; margin: 0 2px" src="https://i.imgur.com/y8DZ20T.jpg" />
+    <img style="width: 50%;" src='https://i.imgur.com/jZ953dj.jpg' />
+</div>
