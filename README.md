@@ -11,12 +11,19 @@ Antes de iniciar abra o cmd e digite ipconfig, obtenha o seu IPV4 e substitua no
 
 #### Front-End
 
-> 1 - cd ./NHentai-expo
-> 2 - npm install
-> 3 - expo start
+</br> > 1 - cd ./NHentai-expo
+</br> > 2 - npm install
+</br> > 3 - expo start
 
 #### Back-End
 
-> 1 - cd ./NHentai-back
-> 2 - pip3 install -r requirements.txt
-> 3 - python3 main.py
+</br> > 1 - cd ./NHentai-back
+</br> > 2 - pip3 install -r requirements.txt
+</br> > 3 - python3 main.py
+
+#### Screenshots
+
+<img src='https://i.imgur.com/dRYQ0Pi.jpg' />
+<img src='https://i.imgur.com/8iystHu.jpg' />
+<img src='https://i.imgur.com/y8DZ20T.jpg' />
+<img src='https://i.imgur.com/jZ953dj.jpg' />
