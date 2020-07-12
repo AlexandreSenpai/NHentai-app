@@ -12,8 +12,8 @@ Antes de iniciar abra o cmd e digite ipconfig, obtenha o seu IPV4 e substitua no
 #### Front-End
 
 > 1 - cd ./NHentai-expo
-2 - npm install
-3 - expo start
+> 2 - npm install
+> 3 - expo start
 
 #### Back-End
 

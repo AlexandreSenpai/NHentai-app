@@ -7,7 +7,7 @@
     "platforms": [
       "android"
     ],
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -25,10 +25,10 @@
       "package": "com.Nhentai.Nhentai",
       "versionCode": 1
     },
-    "androidStatusBarColor": "#ed2553",
+    "androidStatusBarColor": "#333333",
     "androidStatusBar": {
     "barStyle": "light-content",
-    "backgroundColor": "#ed2553"
+    "backgroundColor": "#333333"
     }
   }
 }
