@@ -18,11 +18,5 @@ Antes de iniciar abra o cmd e digite ipconfig, obtenha o seu IPV4 e substitua no
 #### Back-End
 
 > 1 - cd ./NHentai-back
-> 2 - npm install
-> 3 - nodemon server.js
-
-# Screenshots
-
-<div style="display: flex; justify-content: center;">
-
-</div>
+> 2 - pip3 install -r requirements.txt
+> 3 - python3 main.py
