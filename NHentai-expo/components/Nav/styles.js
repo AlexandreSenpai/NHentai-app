@@ -1,7 +1,8 @@
 import styled from 'styled-components/native';
 
+// height: 80px;
+
 export const NavContainer = styled.View`
-    height: 80px;
     background: #333333;
     align-self: stretch;
     align-items: flex-end;

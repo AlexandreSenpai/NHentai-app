@@ -18,9 +18,9 @@ export default function Login({ navigation }){
     }, [])
 
     const logIn = async () => {
-        const user = { username, userID }
-        await SyncStorage.setItem('@user', JSON.stringify(user))
-        navigation.navigate('Home')
+        const user = { username, userID };
+        await SyncStorage.setItem('@user', JSON.stringify(user));
+        navigation.navigate('Home');
     }
 
     const anonimous = () => {

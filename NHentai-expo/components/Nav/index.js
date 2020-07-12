@@ -49,9 +49,9 @@ export default function Nav({ route, navigation, setQuery, setDoujin }){
                 <Button onPress={get_random}>
                     <MenuItem>Random</MenuItem>
                 </Button>
-                <Button>
+                {/* <Button>
                     <MenuItem>Favoritos</MenuItem>
-                </Button>
+                </Button> */}
             </MenuHolder>
         </NavContainer>
     );

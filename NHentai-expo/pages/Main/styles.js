@@ -6,7 +6,6 @@ export const MainContainer = styled.View`
     flex: 1;
     justify-content: center;
     align-items: center;
-    padding: 3px;
 `;
 
 export const ScrollableContainer = styled.ScrollView`
