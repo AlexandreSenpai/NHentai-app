@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import api from '../../services/api'
 import logo from '../../assets/logo.png'
 
 import { NavContainer, LogoHolder, Image, SearchHolder, TextInput, MenuHolder, Button, MenuItem } from './styles';
 
+import MenuContext from '../../contexts/MenuContext';
+
 export default function Nav({ route, navigation, setQuery, setDoujin }){
     
     const [ searchTerm, setSearchTerm ] = useState('');
     const [ random, setRandom ] = useState('');
+
+    const { setIsToggled } = useContext(MenuContext);
 
     const handle_search = (term) => {
         setSearchTerm(term);
@@ -34,7 +38,7 @@ export default function Nav({ route, navigation, setQuery, setDoujin }){
     }
 
     const go_home = () => {
-
+        setIsToggled(true)
     }
 
     return(

@@ -2,10 +2,7 @@ import styled from 'styled-components/native';
 import { StyleSheet } from 'react-native';
 
 export const MainContainer = styled.View`
-    backgroundColor: #222222;
-    flex: 1;
-    justify-content: center;
-    align-items: center;
+
 `;
 
 export const ScrollableContainer = styled.ScrollView`
@@ -34,6 +31,7 @@ export const PaginationHolder = styled.View`
     align-items: center;
     margin-top: 5px;
     margin-bottom: 5px;
+    z-index: 1;
 `;
 
 export const Button = styled.Button`

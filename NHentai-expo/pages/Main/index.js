@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import SyncStorage from '@react-native-community/async-storage';
+import { RefreshControl } from 'react-native';
 import api from '../../services/api.js';
 import Nav from '../../components/Nav';
 import MiniBox from '../../components/MiniBox';
+import SkeletonContent from 'react-native-skeleton-content';
+import SyncStorage from '@react-native-community/async-storage';
 
 import { MainContainer, ScrollableContainer, PaginationHolder, Button, ScrollableStylesheet, Text } from './styles';
-import { RefreshControl } from 'react-native';
 
 export default function Main({ navigation, route }){
 
@@ -14,17 +15,20 @@ export default function Main({ navigation, route }){
   const [ page, setPage ] = useState(1);
   const [ primaryColor, setPrimaryColor ] = useState('#ED2553');
   const [ refreshing, setRefreshing ] = useState(false);
+  const [ loading, setLoading ] = useState(true);
 
   useEffect(() => {
     api.get('/', { params: { page } }).then(res => {
       const data = res.data;
       setThumbs(data.doujins);
       setTotalPages(data.totalPages);
-    })
+      setLoading(false);
+    });
   }, [ page, refreshing ])
 
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
+    setLoading(true);
 
     wait(2000).then(() => setRefreshing(false));
   }, []);
@@ -53,15 +57,33 @@ export default function Main({ navigation, route }){
       <ScrollableContainer refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />} contentContainerStyle={ScrollableStylesheet.flex}>
         {
             thumbs.length > 0
-            ? thumbs.map(item => (
-                <MiniBox 
-                  navigation={navigation} 
-                  id={item.id} 
-                  thumb={item.cover} 
-                  source_lang={item.lang.toLowerCase()} 
-                  title={item.title} 
-                  key={`doujin_${item.id}_${Math.random()}`} 
-                />
+            ? thumbs.map((item, index) => (
+                <SkeletonContent
+                  key={`doujin_${item.id}`}
+                  containerStyle={{}}
+                  isLoading={loading}
+                  boneColor="#111"
+                  highlightColor="#1D1D1D"
+                  animationDirection="horizontalLeft"
+                  layout={[
+                    { 
+                      key: `animated_${index}`, 
+                      width: 109, 
+                      height: 170, 
+                      marginLeft: 2.5, 
+                      marginRight: 2.5,
+                      marginBottom: 2, 
+                    }
+                  ]}
+                >
+                  <MiniBox 
+                    navigation={navigation} 
+                    id={item.id} 
+                    thumb={item.cover} 
+                    source_lang={item.lang.toLowerCase()} 
+                    title={item.title}
+                  />
+                </SkeletonContent>
               ))
             : null
         }

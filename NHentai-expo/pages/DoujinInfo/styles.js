@@ -5,6 +5,10 @@ export const DoujinContainer = styled.View`
     flex: 1;
 `;
 
+export const PreviewSkeleton = styled.View`
+    position: relative;
+`;
+
 export const InfoHolder = styled.View`
     padding: 10px;
 `;

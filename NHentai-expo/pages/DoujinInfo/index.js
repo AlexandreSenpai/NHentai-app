@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Text } from 'react-native';
+import SkeletonContent from 'react-native-skeleton-content';
 import Nav from '../../components/Nav';
 import api from '../../services/api';
 import no_content from '../../assets/no-content.png';
@@ -18,13 +19,15 @@ import {
     PreviewContent, 
     ImagePreview,
     ScrollableContainer,
-    TouchableImage
+    TouchableImage,
+    PreviewSkeleton
 } from './styles';
 
 function DoujinInfo({ route, navigation }) {
 
     const [ title, setTitle ] = useState('');
     const [ images, setImages ] = useState([]);
+    const [ loaders, setLoaders ] = useState([]);
     const [ tags, setTags ] = useState({});
     const [ doujin, setDoujin ] = useState(route.params ? route.params.doujin : '')
 
@@ -40,12 +43,19 @@ function DoujinInfo({ route, navigation }) {
                 "tags": data.tags.join(','),
                 "pages": data.pages[0]
             })
+            const list = data.images.map(item => true)
+            setLoaders(list)
         });
     }, [ doujin ])
 
     const navigate_to = (index) => {
         const { navigate } = navigation;
         navigate('Gallery', { source_images: images, pages: parseInt(tags['pages']), index })
+    }
+
+    const handle_download_end = (index) => {
+        const list = loaders
+        list[index] = false
     }
 
     return(
@@ -78,9 +88,33 @@ function DoujinInfo({ route, navigation }) {
                         {
                             images.length > 0
                             ? images.map((item, index) => (
-                                <TouchableImage key={`preview_${index}`} onPress={() => navigate_to(index)}>
-                                    <ImagePreview resizeMode={'cover'} resizeMethod={'resize'} source={{ uri: item }} />
-                                </TouchableImage>
+                                <>
+                                    <PreviewSkeleton>
+                                        <SkeletonContent
+                                            containerStyle={{position: 'absolute', visibility: loaders[index] === false ? 'hidden' : 'visible'}}
+                                            key={`doujin_preview_${index}`}
+                                            isLoading={loaders[index]}
+                                            boneColor="#111"
+                                            highlightColor="#1D1D1D"
+                                            animationDirection="horizontalLeft"
+                                            layout={[
+                                                { 
+                                                    key: `animated_${index}`, 
+                                                    width: 100, 
+                                                    height: 150
+                                                }
+                                            ]}
+                                        />
+                                        <TouchableImage key={`preview_${index}`} onPress={() => navigate_to(index)}>
+                                            <ImagePreview 
+                                                resizeMode={'cover'} 
+                                                resizeMethod={'resize'} 
+                                                source={{ uri: item }}
+                                                onLoad={() => handle_download_end(index)}
+                                            />
+                                        </TouchableImage>
+                                    </PreviewSkeleton>
+                                </>
                             ))
                             : null
                         }
